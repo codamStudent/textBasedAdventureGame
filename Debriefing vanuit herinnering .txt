@@ -1,0 +1,30 @@
+Debriefing vanuit herinnering 
+
+Maak een game waar het verhaal door middel van woorden wordt beleeft 
+
+Dit kan in de vorm van een text-based adventure game, een dating simulator, etc
+
+de game moet 22 stukjes tekst hebben op de zelfde manier dat het "chooseYourOwnAdventure.txt" er 21 had 
+
+
+personal note
+
+ik ben niet goed in ascii art, als je ascii art in het eindproduct wil hebben zal ik samen moeten werken met een artiest
+
+
+fact checking door middel van de gegeven documenten
+
+er staat dat het eindproduct 22 "stukjes" moet hebben
+tf is een "stukje", clarifictie gewaardeerd
+
+"Als afbeeldingen gebruiken we ASCII code."
+ik ga een ascii converter gebruiken, tenzij samenwerken artiest
+
+"de js code staat op github"
+per industrie standaard, natuurlijk
+
+4 einden
+deze was ik nog vergeten
+
+"nodeJS"
+ok
