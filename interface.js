@@ -42,15 +42,12 @@ static showScreen(CName, dialogue, image){
     console.log(" |" + this.fillSpacesCentered(CName, 25) + "|                                                                                                                                ")
     console.log(" |                         |                                                                                                                                ")
     console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
-    console.log(" |                                                                                                                                                        | ")
-    console.log(" |                                                                                                                                                        | ")
-    console.log(" |                                                                                                                                                        | ")
-    console.log(" |                                                                                                                                                        | ")
-    console.log(" |                                                                                                                                                        | ")
-    console.log(" |                                                                                                                                                        | ")
-    console.log(" |                                                                                                                                                        | ")
-    console.log(" |                                                                                                                                                        | ")
-    console.log(" |                                                                                                                                                        | ")
+
+    for (let Line = 8; Line < 0; Line--) {
+        let LineLength = 152
+        console.log(" |" + dialogue.slice(0 + LineLength * Line, LineLength + LineLength * Line) + "| ")
+    }
+
     console.log(" |________________________________________________________________________________________________________________________________________________________| ")
     console.log("                                                                                                                                                            ")
     }
