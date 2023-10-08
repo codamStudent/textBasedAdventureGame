@@ -22,7 +22,8 @@ class Hud{
         let flipflop = false
         
         while (size != 0) {
-            if (flipflop) {input = input + ' '; flipflop == false}
+            if (flipflop)
+                 {input = input + ' '; flipflop == false}
             else {input = ' ' + input; flipflop == true}
             size--
         }
