@@ -12,7 +12,7 @@ class Hud{
 
 
 // the final part that shows the dialogue and image and gets the user input
-static showScreen(CName, dialogue, image){
+static showScreen(CName, dialogue, image, question){
     
     console.log("                                      ------------------------------                                                                                        ")
     console.log("                                                                                                                                                            ")
@@ -50,9 +50,10 @@ static showScreen(CName, dialogue, image){
 
     console.log(" |________________________________________________________________________________________________________________________________________________________| ")
     console.log("                                                                                                                                                            ")
+    
+    return rs.question(question)
     }
 }
 console.log(Hud.fillSpacesCentered("jannes", 9))
 
-var answer = rs.question()
 module.exports = Hud
