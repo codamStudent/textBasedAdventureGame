@@ -6,6 +6,7 @@ class Hud{
 
         while (size != 0) {
             input = input + ' '
+            size--;
         }
         return input
     }
@@ -14,6 +15,7 @@ class Hud{
 
         while (size != 0) {
             input = ' ' + input
+            size--;
         }
         return input
     }
@@ -21,10 +23,10 @@ class Hud{
         size -= input.length
         let flipflop = false
         
-        while (size != 0) {
+        while (size >= 0) {
             if (flipflop)
-                 {input = input + ' '; flipflop == false}
-            else {input = ' ' + input; flipflop == true}
+                 {input = input + ' '; flipflop = false}
+            else {input = ' ' + input; flipflop = true}
             size--
         }
         return input
@@ -37,8 +39,10 @@ class Hud{
 // }
 
 // the final part that shows the dialogue and image and gets the user input
-static showScreen(CName, dialogue, image, question){
-    
+static showScreenDialogue(CName, dialogue, image, question){
+        let LineLength = 152
+    this.fillSpacesLeft(dialogue, 152 * 9)
+
     console.log("                                      ------------------------------                                                                                        ")
     console.log("                                                                                                                                                            ")
     console.log("                                                                                                                                                            ")
@@ -64,14 +68,13 @@ static showScreen(CName, dialogue, image, question){
     console.log("  _________________________                                                                                                                                 ")
     console.log(" |                         |                                                                                                                                ")
     console.log(" |                         |                                                                                                                                ")
-    console.log(" |" + this.fillSpacesCentered(CName, 25) + "|                                                                                                                                ")
+    console.log(" |" + this.fillSpacesCentered(CName, 24) + "|                                                                                                                                ")
     console.log(" |                         |                                                                                                                                ")
     console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
 
     //this ensures good line wrapping(, hopefully, havent tested it yet)
     for (let Line = 8; Line < 0; Line--) {
-        let LineLength = 152
-        console.log(" |" + dialogue.slice(0 + LineLength * Line, LineLength + LineLength * Line) + "| ")
+        console.log(" |" + dialogue.slice(0 + (LineLength * Line), LineLength + (LineLength * Line)) + "| ")
     }
 
     console.log(" |________________________________________________________________________________________________________________________________________________________| ")
@@ -79,7 +82,50 @@ static showScreen(CName, dialogue, image, question){
     
     return rs.question(question)
     }
+    static showScreenQuestion(CName, dialogue, image, question){
+        
+        console.log("                                      ------------------------------                                                                                        ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("                                                                                                                                                            ")
+        console.log("  _________________________                                                                                                                                 ")
+        console.log(" |                         |                                                                                                                                ")
+        console.log(" |                         |                                                                                                                                ")
+        console.log(" |" + this.fillSpacesCentered(CName, 25) + "|                                                                                                                                ")
+        console.log(" |                         |                                                                                                                                ")
+        console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
+
+        //this ensures good line wrapping(, hopefully, havent tested it yet)
+        for (let Line = 8; Line < 0; Line--) {
+            let LineLength = 152
+            console.log(" |" + dialogue.slice(0 + LineLength * Line, LineLength + LineLength * Line) + "| ")
+        }
+
+        console.log(" |________________________________________________________________________________________________________________________________________________________| ")
+        console.log("                                                                                                                                                            ")
+
+        return rs.question(question)
+    }
 }
-console.log(Hud.fillSpacesCentered("jannes", 9))
+
+Hud.showScreenDialogue("jannes", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","aa", "what?")
 
 module.exports = Hud
