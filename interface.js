@@ -41,7 +41,7 @@ class Hud{
 // the final part that shows the dialogue and image and gets the user input
 static showScreenDialogue(CName, dialogue, image, question){
         let LineLength = 152
-    this.fillSpacesLeft(dialogue, 152 * 9)
+    dialogue = this.fillSpacesRight(dialogue, LineLength * 9)
 
     console.log("                                      ------------------------------                                                                                        ")
     console.log("                                                                                                                                                            ")
@@ -73,9 +73,10 @@ static showScreenDialogue(CName, dialogue, image, question){
     console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
 
     //this ensures good line wrapping(, hopefully, havent tested it yet)
-    for (let Line = 8; Line < 0; Line--) {
-        console.log(" |" + dialogue.slice(0 + (LineLength * Line), LineLength + (LineLength * Line)) + "| ")
+    for (let Line = 0; Line <= 8; Line++) {
+        console.log(" |" + dialogue.slice(0 + (LineLength * Line), (LineLength * (Line+1))) + "| ")
     }
+    // console.log("lalala"+dialogue+"lalala");
 
     console.log(" |________________________________________________________________________________________________________________________________________________________| ")
     console.log("                                                                                                                                                            ")
@@ -116,7 +117,7 @@ static showScreenDialogue(CName, dialogue, image, question){
         //this ensures good line wrapping(, hopefully, havent tested it yet)
         for (let Line = 8; Line < 0; Line--) {
             let LineLength = 152
-            console.log(" |" + dialogue.slice(0 + LineLength * Line, LineLength + LineLength * Line) + "| ")
+            console.log(" |" + dialogue.substring(0 + LineLength * Line, LineLength + LineLength * Line) + "| ")
         }
 
         console.log(" |________________________________________________________________________________________________________________________________________________________| ")
@@ -126,6 +127,9 @@ static showScreenDialogue(CName, dialogue, image, question){
     }
 }
 
-Hud.showScreenDialogue("jannes", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","aa", "what?")
+Hud.showScreenDialogue("jannes", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+,"aa", "what?")
+
+console.log(Hud.fillSpacesRight("your mom", 18) + Hud.fillSpacesLeft("your mmo", 18))
 
 module.exports = Hud
