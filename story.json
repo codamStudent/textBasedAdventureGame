@@ -1,16 +1,17 @@
 {
     "1":{
-        "dialogue":     ["aaaaaaaa", "bbbbbbbbbbbbb", "ccccccc", "ddddddddd"],
-        "screen":       
+        "dialogue":["aaaaaaaa", "bbbbbbbbbbbbb", "ccccccc", "ddddddddd", "question"],
+        "namebox":["max0r", "jeff", "jouw_moeder", "j1eff" ],
+        "screen":     
             {
                 "$ref":[
                         "./screen.json#person/face_expression", 
                         "./screen.json#person/face_expression", 
                         "./screen.json#person/face_expression", 
+                        "./screen.json#person/face_expression",
                         "./screen.json#person/face_expression"
                     ]
              },
-        "question":     "what?",
         "options":      ["a?", "b?", "c?", "d?"],
         "continue_at":  [3, 4, 12, 6]
     }
