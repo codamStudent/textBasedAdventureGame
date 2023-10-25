@@ -19,10 +19,10 @@
 let Max_length = 69, string = "sASDFASDasdfssadjfkladsjflkajsdfasdfkljasdfakldshfdashasd fasdf argbys fbwrsb", printString = ""
 
 function cutString(Max_length, string) {
-    for (let index = Max_length; index >= 0; index--) 
-        if (string[index] == '\n' || string[index] == ' ' ) {
-            return string.substring(0, index); break
-        }
+    for (let index = Max_length; index >= 0; index--)
+        if (string[index] == '\n' || string[index] == ' ' )
+            return string.substring(0, index);
 }
+
 
 console.log(cutString(Max_length, string));
