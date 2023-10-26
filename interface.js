@@ -10,6 +10,7 @@ class Hud{
         }
         return input
     }
+    
     static fillSpacesLeft(input, size){
         size -= input.length
 
@@ -19,6 +20,7 @@ class Hud{
         }
         return input
     }
+
     static fillSpacesCentered(input, size) {
         size -= input.length
         let flipflop = false
