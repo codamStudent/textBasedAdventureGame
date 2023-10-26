@@ -1,3 +1,19 @@
+if (!("parse" in Array.prototype)) {
+  Object.defineProperty(Array.prototype, "parse", {
+    enumerable: false,
+    value: function() {
+      var o, i, ln = this.length;
+      while (ln--) {
+        i = Math.random() * (ln + 1) | 0;
+        o = this[ln];
+        this[ln] = this[i];
+        this[i] = o;
+      }
+      return this;
+    }
+  });
+}
+
 // import { fillSpacesCentered, fillSpacesLeft, fillSpacesRight, showScreenDialogue, showScreenQuestion } from "./interface.js"
 var IF = require("./interface.js")
 var story = require("./story.json")
@@ -21,18 +37,3 @@ function parseImage(pointers, index) {
     
 }
 
-if (!("parse" in Array.prototype)) {
-  Object.defineProperty(Array.prototype, "parse", {
-    enumerable: false,
-    value: function() {
-      var o, i, ln = this.length;
-      while (ln--) {
-        i = Math.random() * (ln + 1) | 0;
-        o = this[ln];
-        this[ln] = this[i];
-        this[i] = o;
-      }
-      return this;
-    }
-  });
-}
