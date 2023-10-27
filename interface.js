@@ -38,7 +38,7 @@ class Hud{
     static cutString(string, Max_length ) {
         for (let index = Max_length; index >= 0; index--)
             if (string[index] == '\n' || string[index] == ' ' )
-                return [string.substring(0, index), Max_length];
+                return [string.substring(0, index), index];
     }
 
 // const hud = new Hud();
@@ -83,7 +83,7 @@ static showScreenDialogue(CName, dialogue, image, question){
 
     [temp, temp2] = this.cutString(dialogue, LineLength)
     console.log(" |"+ this.fillSpacesRight(temp, LineLength)+"| ");
-    
+
     [temp, temp2] = this.cutString(dialogue.substring(temp2, dialogue.length))
     console.log(" |"+ this.fillSpacesRight(temp, LineLength)+"| ");
     // this.fillSpacesRight(this.cutString(dialogue, LineLength))

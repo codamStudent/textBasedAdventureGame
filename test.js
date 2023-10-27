@@ -1,5 +1,7 @@
 // let string = "aaaaabvbbbcccccdddddeeeee"
 
+const { start } = require("discord");
+
 // console.log(string.slice(0, 5))
 // console.log(string.slice(5,10))
 // console.log(string.slice(10, 15))
@@ -50,7 +52,7 @@ console.log(bbb);
 // let eee = ["aaaaaaaaaaaa", 34] + 1
 // console.log(eee[15]);
 var texttobeprinted = "", lastprintedchar = 0, LineLength = 30 
-let dialogue = "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccc dddddddddddddddddd eeeeeeeeeeeeee"
+let dialogue = "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccc dddddddddddddddddd eeeeeeeeeeeeee ffffffffffffffffffffffffffff"
 
 function fillSpacesRight(input, size){
     size -= input.length
@@ -71,8 +73,10 @@ function cutString(string, Max_length ) {
 function cutStringTwice(string, Start, Max_length ) {
 	// console.log(Start, Max_length);
     for (let index = Max_length; index >= 0; index--){
-
-        if (string[Start + index] == ' '){									/*string[Start + index] == '\n' || */
+        console.log(index + Start, string.length);
+		console.log(string.length < (index + start))
+		console.log(string.length > (index + start))
+        if (string[Start + index] == '\n' || string[Start + index] == ' '){									/**/
 
             return [string.substring(Start, Start + index), Start + index];
 }}}
@@ -98,8 +102,8 @@ function cutStringTwice(string, Start, Max_length ) {
 
 		[texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, lastprintedchar, LineLength);
 		// console.log(texttobeprinted+'a');
-		console.log(lastprintedchar++);
 		console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
+		console.log(lastprintedchar++);
 
         // console.log(" |" + dialogue.slice(0 + (LineLength * Line), (LineLength * (Line+1))) + "| ")
     }
