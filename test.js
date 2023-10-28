@@ -83,27 +83,21 @@ function cutString(string, Max_length ) {
 }
 
 function cutStringTwice(string, Start, Max_length ) {
-	// console.log(Start, Max_length);
-    for (let index = Max_length; index >= 0; index--){
-
+    for (let index = Max_length; index >= 0; index--)
         if ((Start + index) < string.length) {
-            if (string[Start + index] == '\n' || string[Start + index] == ' '){									/**/
-                console.log(string.substring(Start, Start + index), Start + index);
+            if (string[Start + index] == '\n' || string[Start + index] == ' ')
                 return [string.substring(Start, Start + index), Start + index];
-}}}
+}
     return ["", -1]
 }
 
 dialogue = ' ' + dialogue + ' '
 
 for (let Line = 0; Line <= 8; Line++) {
-
-
-		// console.log(texttobeprinted+'a');
 		if (lastprintedchar) {
 		    [texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, lastprintedchar, LineLength);
             console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
-		console.log(lastprintedchar++);
+		    lastprintedchar++
         }
         else 
             console.log(" |"+ fillSpacesRight("", LineLength)+"| ")
