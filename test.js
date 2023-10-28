@@ -84,10 +84,9 @@ function cutString(string, Max_length ) {
 
 function cutStringTwice(string, Start, Max_length ) {
     for (let index = Max_length; index >= 0; index--)
-        if ((Start + index) < string.length) {
+        if ((Start + index) < string.length) 
             if (string[Start + index] == '\n' || string[Start + index] == ' ')
                 return [string.substring(Start, Start + index), Start + index];
-}
     return ["", -1]
 }
 
@@ -97,9 +96,9 @@ for (let Line = 0; Line <= 8; Line++) {
 		if (lastprintedchar) {
 		    [texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, lastprintedchar, LineLength);
             console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
+            // skip the ' ' at which we just cut of
 		    lastprintedchar++
-        }
-        else 
+        }else 
             console.log(" |"+ fillSpacesRight("", LineLength)+"| ")
 }
 
