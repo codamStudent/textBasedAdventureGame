@@ -1,6 +1,6 @@
 // let string = "aaaaabvbbbcccccdddddeeeee"
 
-const { start } = require("discord");
+// const { start } = require("discord");
 
 // console.log(string.slice(0, 5))
 // console.log(string.slice(5,10))
@@ -85,13 +85,17 @@ function cutString(string, Max_length ) {
 function cutStringTwice(string, Start, Max_length ) {
 	// console.log(Start, Max_length);
     for (let index = Max_length; index >= 0; index--){
-        console.log(index + Start, string.length);
-		console.log(string.length < (index + Start))
-		console.log(string.length > (index + Start))
-        if (string[Start + index] == '\n' || string[Start + index] == ' '){									/**/
 
-            return [string.substring(Start, Start + index), Start + index];
-}}}
+        if (condition) {
+    
+
+		    console.log(string.length < (index + Start))
+		    console.log(string.length > (index + Start))
+
+            if (string[Start + index] == '\n' || string[Start + index] == ' '){									/**/
+
+                return [string.substring(Start, Start + index), Start + index];
+}}}}
 
  for (let Line = 0; Line <= 8; Line++) {
 
