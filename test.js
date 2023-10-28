@@ -1,7 +1,6 @@
 // let string = "aaaaabvbbbcccccdddddeeeee"
 
 const { start } = require("discord");
-const { GuildAuditLogsEntry, GuildAuditLogs } = require("discord.js");
 
 // console.log(string.slice(0, 5))
 // console.log(string.slice(5,10))
@@ -30,18 +29,18 @@ const { GuildAuditLogsEntry, GuildAuditLogs } = require("discord.js");
 
 // console.log(cutString(Max_length, string));
 
-function returnTwo() {
-    return ["aaaaaa", 7]}
+// function returnTwo() {
+//     return ["aaaaaa", 7]}
 // }
 // function printTwo(a, b) {
 //     console.log(a);
 //     console.log(b);
 // }
 
-let aaa, bbb, ccc
+// let aaa, bbb, ccc
 
-[aaa, bbb] = returnTwo()
-console.log(bbb);
+// [aaa, bbb] = returnTwo()
+// console.log(bbb);
 
 // [aaa,bbb] = [3,2]
 // console.log(aaa);
@@ -52,6 +51,18 @@ console.log(bbb);
 
 // let eee = ["aaaaaaaaaaaa", 34] + 1
 // console.log(eee[15]);
+
+// function compareValues(string = "", number) {
+//     console.log(string.length, number);
+//     if (string.length > number) 
+//         console.log("aaaaaa");
+//     if (string.length < number) 
+//         console.log("bbbbbbb");
+// }
+
+// compareValues("aaaaaaaaaaaa", 5)
+// compareValues("aaaaaaaaaaaa", 22)
+
 var texttobeprinted = "", lastprintedchar = 0, LineLength = 30 
 let dialogue = "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccc dddddddddddddddddd eeeeeeeeeeeeee ffffffffffffffffffffffffffff"
 
@@ -75,18 +86,21 @@ function cutStringTwice(string, Start, Max_length ) {
 	// console.log(Start, Max_length);
     for (let index = Max_length; index >= 0; index--){
         console.log(index + Start, string.length);
-		if(string.length < (index + start)){
-            console.log("true");}
-        else{
-            console.log("false");
-        }
-		// console.log(string.length > (index + start))
+		console.log(string.length < (index + Start))
+		console.log(string.length > (index + Start))
         if (string[Start + index] == '\n' || string[Start + index] == ' '){									/**/
 
             return [string.substring(Start, Start + index), Start + index];
 }}}
 
+ for (let Line = 0; Line <= 8; Line++) {
 
+
+		[texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, lastprintedchar, LineLength);
+		// console.log(texttobeprinted+'a');
+		console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
+		console.log(lastprintedchar++);
+}
 
 // [texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, 40, LineLength)
 // console.log(texttobeprinted, lastprintedchar);
@@ -102,13 +116,9 @@ function cutStringTwice(string, Start, Max_length ) {
     // // fillSpacesRight(cutString(dialogue, LineLength))
     
     //this ensures good line wrapping(, hopefully, havent tested it yet)
-    for (let Line = 0; Line <= 8; Line++) {
 
 
-		[texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, lastprintedchar, LineLength);
-		// console.log(texttobeprinted+'a');
-		console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
-		console.log(lastprintedchar++);
 
+
+   
         // console.log(" |" + dialogue.slice(0 + (LineLength * Line), (LineLength * (Line+1))) + "| ")
-    }
