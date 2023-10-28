@@ -35,10 +35,20 @@ class Hud{
         return input
     }
 
+    
     static cutString(string, Max_length ) {
         for (let index = Max_length; index >= 0; index--)
             if (string[index] == '\n' || string[index] == ' ' )
                 return [string.substring(0, index), index];
+    }
+
+    static cutStringTwice(string, Start, Max_length ) {
+        for (let index = Max_length; index >= 0; index--)
+            if ((Start + index) < string.length) 
+                if (string[Start + index] == '\n' || string[Start + index] == ' ')
+                    return [string.substring(Start, Start + index), Start + index];
+        //at htis point we are at the end of the string, i mark this with -1 ... 
+        return ["", -1]
     }
 
 // const hud = new Hud();
@@ -49,7 +59,7 @@ class Hud{
 
 // the final part that shows the dialogue and image and gets the user input
 static showScreenDialogue(CName, dialogue, image, question){
-        let LineLength = 152
+        let LineLength = 152, lastprintedchar = 1, texttobeprinted = ""
     dialogue = this.fillSpacesRight(dialogue, LineLength * 9)
 
     console.log("                                      ------------------------------                                                                                        ")
@@ -81,24 +91,48 @@ static showScreenDialogue(CName, dialogue, image, question){
     console.log(" |                         |                                                                                                                                ")
     console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
 
-    [temp, temp2] = this.cutString(dialogue, LineLength)
-    console.log(" |"+ this.fillSpacesRight(temp, LineLength)+"| ");
 
-    [temp, temp2] = this.cutString(dialogue.substring(temp2, dialogue.length))
-    console.log(" |"+ this.fillSpacesRight(temp, LineLength)+"| ");
-    // this.fillSpacesRight(this.cutString(dialogue, LineLength))
     
     //this ensures good line wrapping(, hopefully, havent tested it yet)
     for (let Line = 0; Line <= 8; Line++) {
-        console.log(" |" + dialogue.slice(0 + (LineLength * Line), (LineLength * (Line+1))) + "| ")
+        // ... so that i can intercept it later
+    if (lastprintedchar) {
+	    [texttobeprinted, lastprintedchar] = this.cutStringTwice(dialogue, lastprintedchar, LineLength);
+        console.log(" |"+ this.fillSpacesRight(texttobeprinted, LineLength)+"| ");
+        // skip the ' ' at which we just cut of
+	    lastprintedchar++
+    }else 
+        console.log(" |"+ this.fillSpacesRight("", LineLength)+"| ")
     }
-    // console.log("lalala"+dialogue+"lalala");
 
     console.log(" |________________________________________________________________________________________________________________________________________________________| ")
     console.log("                                                                                                                                                            ")
     
     return rs.question(question)
     }
+
+    /*function cutStringTwice(string, Start, Max_length ) {
+    for (let index = Max_length; index >= 0; index--)
+        if ((Start + index) < string.length) 
+            if (string[Start + index] == '\n' || string[Start + index] == ' ')
+                return [string.substring(Start, Start + index), Start + index];
+    //at htis point we are at the end of the string, i mark this with -1 ... 
+    return ["", -1]
+}
+
+dialogue = ' ' + dialogue + ' '
+
+for (let Line = 0; Line <= 8; Line++) {
+	// ... so that i can intercept it later
+    if (lastprintedchar) {
+	    [texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, lastprintedchar, LineLength);
+        console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
+        // skip the ' ' at which we just cut of
+	    lastprintedchar++
+    }else 
+        console.log(" |"+ fillSpacesRight("", LineLength)+"| ")
+    }*/
+
 
     /*let Max_length = 69, string = "sASDFASDasdfssadjfkladsjflkajsdfasdfkljasdfakldshfdashasd fasdf argbys fbwrsb", printString = ""
 
@@ -152,7 +186,7 @@ function cutString(Max_length, string) {
     }
 }
 
-Hud.showScreenDialogue("jannes", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+Hud.showScreenDialogue("jannes", "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccccccccc ddddddddddddddddddddddd eeeeeeeeeeeeeeeee ffffffffffffffffffffff gggggggggggggggggggggg"
 ,"aa", "what?")
 
 console.log(Hud.fillSpacesRight("your mom", 18) + Hud.fillSpacesLeft("your mmo", 18))
