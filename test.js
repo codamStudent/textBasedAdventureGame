@@ -63,8 +63,8 @@
 // compareValues("aaaaaaaaaaaa", 5)
 // compareValues("aaaaaaaaaaaa", 22)
 
-var texttobeprinted = "", lastprintedchar = 0, LineLength = 30 
-let dialogue = "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccc dddddddddddddddddd eeeeeeeeeeeeee ffffffffffffffffffffffffffff"
+var texttobeprinted = "", lastprintedchar = 1, LineLength = 30 
+let dialogue = "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccc dddddddddddddddddd eeeeeeeeeeeeee"
 
 function fillSpacesRight(input, size){
     size -= input.length
@@ -86,24 +86,27 @@ function cutStringTwice(string, Start, Max_length ) {
 	// console.log(Start, Max_length);
     for (let index = Max_length; index >= 0; index--){
 
-        if (condition) {
-    
-
-		    console.log(string.length < (index + Start))
-		    console.log(string.length > (index + Start))
-
+        if ((Start + index) < string.length) {
             if (string[Start + index] == '\n' || string[Start + index] == ' '){									/**/
-
+                console.log(string.substring(Start, Start + index), Start + index);
                 return [string.substring(Start, Start + index), Start + index];
-}}}}
+}}}
+    return ["", -1]
+}
 
- for (let Line = 0; Line <= 8; Line++) {
+dialogue = ' ' + dialogue + ' '
+
+for (let Line = 0; Line <= 8; Line++) {
 
 
-		[texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, lastprintedchar, LineLength);
 		// console.log(texttobeprinted+'a');
-		console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
+		if (lastprintedchar) {
+		    [texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, lastprintedchar, LineLength);
+            console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
 		console.log(lastprintedchar++);
+        }
+        else 
+            console.log(" |"+ fillSpacesRight("", LineLength)+"| ")
 }
 
 // [texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, 40, LineLength)
