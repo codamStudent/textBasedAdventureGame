@@ -100,11 +100,11 @@ class Hud {
 
 
 
-			console.log("  _________________________                                                                                                                                 ")
-			console.log(" |                         |" + this.fillSpacesRight(image[22].substring(28), LineLength - 24))
+			console.log("  _________________________ " + this.fillSpacesRight(image[22].substring(28), LineLength - 24))
 			console.log(" |                         |" + this.fillSpacesRight(image[23].substring(28), LineLength - 24))
-			console.log(" |" + this.fillSpacesCentered(CName, 24) + '|' + this.fillSpacesRight(image[24].substring(28), LineLength - 24))
-			console.log(" |                         |" + this.fillSpacesRight(image[25].substring(28), LineLength - 24))
+			console.log(" |                         |" + this.fillSpacesRight(image[24].substring(28), LineLength - 24))
+			console.log(" |" + this.fillSpacesCentered(CName, 24) + '|' + this.fillSpacesRight(image[25].substring(28), LineLength - 24))
+			console.log(" |                         |" + this.fillSpacesRight(image[26].substring(28), LineLength - 24))
 			console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
 		}
 
@@ -203,16 +203,23 @@ class Hud {
 
 
 
-			console.log("  _________________________                                                                                                                                 ")
-			console.log(" |                         |" + this.fillSpacesRight(image[22].substring(28), LineLength - 24))
+			console.log("  _________________________ " + this.fillSpacesRight(image[22].substring(28), LineLength - 24))
 			console.log(" |                         |" + this.fillSpacesRight(image[23].substring(28), LineLength - 24))
-			console.log(" |" + this.fillSpacesCentered(CName, 24) + '|' + this.fillSpacesRight(image[24].substring(28), LineLength - 24))
-			console.log(" |                         |" + this.fillSpacesRight(image[25].substring(28), LineLength - 24))
+			console.log(" |                         |" + this.fillSpacesRight(image[24].substring(28), LineLength - 24))
+			console.log(" |" + this.fillSpacesCentered(CName, 24) + '|' + this.fillSpacesRight(image[25].substring(28), LineLength - 24))
+			console.log(" |                         |" + this.fillSpacesRight(image[26].substring(28), LineLength - 24))
 			console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
 		}
-		//this ensures good line wrapping(, hopefully, havent tested it yet)
-		for (let Line = 8; Line < 0; Line--) {
-			console.log(" |" + dialogue.substring(0 + LineLength * Line, LineLength + LineLength * Line) + "| ")
+		
+		for (let Line = 0; Line <= 8; Line++) {
+			// ... so that i can intercept it later
+			if (lastprintedchar) {
+				[texttobeprinted, lastprintedchar] = this.cutStringTwice(dialogue, lastprintedchar, LineLength);
+				console.log(" |" + this.fillSpacesRight(texttobeprinted, LineLength) + "| ");
+				// skip the ' ' at which we just cut of
+				lastprintedchar++
+			} else
+				console.log(" |" + this.fillSpacesRight("", LineLength) + "| ")
 		}
 
 		console.log(" |________________________________________________________________________________________________________________________________________________________| ")
@@ -222,11 +229,7 @@ class Hud {
 	}
 }
 
-Hud.showScreenQuestion("jannes", "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccccccccc ddddddddddddddddddddddd eeeeeeeeeeeeeeeee ffffffffffffffffffffff gggggggggggggggggggggg",
-	["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "000000000000000000000000000000000000000023", "0000000000000000000000000000000000000000000024", "00000000000000000000000000000000000000000025", "0000000000000000000000000000000000000000026"], "what?")
-
-
-
-console.log(Hud.fillSpacesRight("your mom", 18) + Hud.fillSpacesLeft("your mmo", 18))
+// Hud.showScreenDialogue("jannes", "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccccccccc ddddddddddddddddddddddd eeeeeeeeeeeeeeeee ffffffffffffffffffffff gggggggggggggggggggggg",
+// 	["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "000000000000000000000000000000000000000023", "0000000000000000000000000000000000000000000024", "00000000000000000000000000000000000000000025", "0000000000000000000000000000000000000000026", "000000000000000000000000000000000000027"], "what?")
 
 module.exports = Hud
