@@ -1,3 +1,19 @@
+if (!("scramble" in Array.prototype)) {
+	Object.defineProperty(Array.prototype, "scramble", {
+		enumerable: false,
+		value: function () {
+			var o, i, ln = this.length;
+			while (ln--) {
+				i = Math.random() * (ln + 1) | 0;
+				o = this[ln];
+				this[ln] = this[i];
+				this[i] = o;
+			}
+			return this;
+		}
+	});
+}
+
 var rs = require("readline-sync")
 var temp = 0, temp2 = 0
 class Hud {
@@ -24,16 +40,18 @@ class Hud {
 
 	static fillSpacesCentered(input, size) {
 		size -= input.length
+		console.log(input.length);
 		let flipflop = false
 
-		while (size >= 0) {
+		while (size > 0) {
 			if (flipflop) { input = input + ' '; flipflop = false }
 			else { input = ' ' + input; flipflop = true }
 			size--
 		}
+
+		console.log(input.length);
 		return input
 	}
-
 
 	static cutString(string, Max_length) {
 		for (let index = Max_length; index >= 0; index--)
@@ -161,13 +179,13 @@ class Hud {
 				return string.substring(0, index);
 	}*/
 	}
-	static showScreenQuestion(CName, dialogue, image = ["", "", "", "", "",
+	static showScreenQuestion(CName, options = ["", "", "", ""], image = ["", "", "", "", "",
 		"", "", "", "", "",
 		"", "", "", "", "",
 		"", "", "", "", "",
 		"", "", "", "", "", ""], question) {
-		
-			let LineLength = 152, lastprintedchar = 1, texttobeprinted = ""
+
+		let LineLength = 152 /*lastprintedchar = 1, texttobeprinted = ""*/
 
 		console.log(this.fillSpacesRight(image[0], LineLength))
 		console.log(this.fillSpacesRight(image[1], LineLength))
@@ -199,28 +217,44 @@ class Hud {
 			console.log(this.fillSpacesRight(image[26], LineLength))
 			console.log("  ________________________________________________________________________________________________________________________________________________________  ")
 		} else {
-
-
-
-
 			console.log("  _________________________ " + this.fillSpacesRight(image[22].substring(28), LineLength - 24))
 			console.log(" |                         |" + this.fillSpacesRight(image[23].substring(28), LineLength - 24))
 			console.log(" |                         |" + this.fillSpacesRight(image[24].substring(28), LineLength - 24))
-			console.log(" |" + this.fillSpacesCentered(CName, 24) + '|' + this.fillSpacesRight(image[25].substring(28), LineLength - 24))
+			console.log(" |" + this.fillSpacesCentered(CName, 25) + '|' + this.fillSpacesRight(image[25].substring(28), LineLength - 24))
 			console.log(" |                         |" + this.fillSpacesRight(image[26].substring(28), LineLength - 24))
 			console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
 		}
-		
-		for (let Line = 0; Line <= 8; Line++) {
-			// ... so that i can intercept it later
-			if (lastprintedchar) {
-				[texttobeprinted, lastprintedchar] = this.cutStringTwice(dialogue, lastprintedchar, LineLength);
-				console.log(" |" + this.fillSpacesRight(texttobeprinted, LineLength) + "| ");
-				// skip the ' ' at which we just cut of
-				lastprintedchar++
-			} else
-				console.log(" |" + this.fillSpacesRight("", LineLength) + "| ")
+
+		for (let index = 9; index > 0; index--) {
+			options.scramble()
 		}
+
+		console.log(" |" + this.fillSpacesRight("", LineLength) + "| ");
+		console.log(" |" + this.fillSpacesRight(question, LineLength) + "| ");
+		console.log(" |" + this.fillSpacesRight("", LineLength) + "| ");
+
+		for (let index in options){
+			console.log(" |"+this.fillSpacesCentered(String.fromCharCode(97 + Number(index)) +"    	"+ options[index]+"                	",LineLength)+"|");
+		}
+
+
+
+
+
+
+
+
+
+		// for (let Line = 0; Line <= 8; Line++) {
+		// 	// ... so that i can intercept it later
+		// 	if (lastprintedchar) {
+		// 		[texttobeprinted, lastprintedchar] = this.cutStringTwice(dialogue, lastprintedchar, LineLength);
+		// 		console.log(" |" + this.fillSpacesRight(texttobeprinted, LineLength) + "| ");
+		// 		// skip the ' ' at which we just cut of
+		// 		lastprintedchar++
+		// 	} else
+		// 		console.log(" |" + this.fillSpacesRight("", LineLength) + "| ")
+		// }
 
 		console.log(" |________________________________________________________________________________________________________________________________________________________| ")
 		console.log("                                                                                                                                                            ")
@@ -229,7 +263,19 @@ class Hud {
 	}
 }
 
-// Hud.showScreenDialogue("jannes", "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccccccccc ddddddddddddddddddddddd eeeeeeeeeeeeeeeee ffffffffffffffffffffff gggggggggggggggggggggg",
-// 	["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "000000000000000000000000000000000000000023", "0000000000000000000000000000000000000000000024", "00000000000000000000000000000000000000000025", "0000000000000000000000000000000000000000026", "000000000000000000000000000000000000027"], "what?")
+/*(CName, options = ["", "", "", ""], image = ["", "", "", "", "", ""], question)*/
+
+Hud.showScreenQuestion("jannes", ["aaa", "bbb", "ccc"],
+	[
+		"01", "02", "03", "04", "05", "06", "07",
+		"08", "09", "10", "11", "12", "13", "14",
+		"15", "16", "17", "18", "19", "20", "21", "22", "000000000000000000000000000000000000000023",
+		"0000000000000000000000000000000000000000000024", "00000000000000000000000000000000000000000025",
+		"0000000000000000000000000000000000000000026", "000000000000000000000000000000000000027"
+	],
+	"whaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat?")
 
 module.exports = Hud
+
+
+// aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccccccccc ddddddddddddddddddddddd eeeeeeeeeeeeeeeee ffffffffffffffffffffff gggggggggggggggggggggg

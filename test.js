@@ -63,44 +63,46 @@
 // compareValues("aaaaaaaaaaaa", 5)
 // compareValues("aaaaaaaaaaaa", 22)
 
-var texttobeprinted = "", lastprintedchar = 1, LineLength = 30 
-let dialogue = "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccc dddddddddddddddddd eeeeeeeeeeeeee"
+// var texttobeprinted = "", lastprintedchar = 1, LineLength = 30 
+// let dialogue = "aaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccc dddddddddddddddddd eeeeeeeeeeeeee"
 
-function fillSpacesRight(input, size){
-    size -= input.length
+// function fillSpacesRight(input, size){
+//     size -= input.length
 
-    while (size != 0) {
-        input = input + ' '
-        size--;
-    }
-    return input
-}
+//     while (size != 0) {
+//         input = input + ' '
+//         size--;
+//     }
+//     return input
+// }
 
-function cutString(string, Max_length ) {
-    for (let index = Max_length; index >= 0; index--)
-        if (string[index] == '\n' || string[index] == ' ' )
-            return [string.substring(0, index), index];
-}
+// function cutString(string, Max_length ) {
+//     for (let index = Max_length; index >= 0; index--)
+//         if (string[index] == '\n' || string[index] == ' ' )
+//             return [string.substring(0, index), index];
+// }
 
-function cutStringTwice(string, Start, Max_length ) {
-    for (let index = Max_length; index >= 0; index--)
-        if ((Start + index) < string.length) 
-            if (string[Start + index] == '\n' || string[Start + index] == ' ')
-                return [string.substring(Start, Start + index), Start + index];
-    return ["", -1]
-}
+// function cutStringTwice(string, Start, Max_length ) {
+//     for (let index = Max_length; index >= 0; index--)
+//         if ((Start + index) < string.length) 
+//             if (string[Start + index] == '\n' || string[Start + index] == ' ')
+//                 return [string.substring(Start, Start + index), Start + index];
+//     //at htis point we are at the end of the string, i mark this with -1 ... 
+//     return ["", -1]
+// }
 
-dialogue = ' ' + dialogue + ' '
+// dialogue = ' ' + dialogue + ' '
 
-for (let Line = 0; Line <= 8; Line++) {
-		if (lastprintedchar) {
-		    [texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, lastprintedchar, LineLength);
-            console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
-            // skip the ' ' at which we just cut of
-		    lastprintedchar++
-        }else 
-            console.log(" |"+ fillSpacesRight("", LineLength)+"| ")
-}
+// for (let Line = 0; Line <= 8; Line++) {
+// 	// ... so that i can intercept it later
+//     if (lastprintedchar) {
+// 	    [texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, lastprintedchar, LineLength);
+//         console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
+//         // skip the ' ' at which we just cut of
+// 	    lastprintedchar++
+//     }else 
+//         console.log(" |"+ fillSpacesRight("", LineLength)+"| ")
+// }
 
 // [texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, 40, LineLength)
 // console.log(texttobeprinted, lastprintedchar);
@@ -122,3 +124,7 @@ for (let Line = 0; Line <= 8; Line++) {
 
    
         // console.log(" |" + dialogue.slice(0 + (LineLength * Line), (LineLength * (Line+1))) + "| ")
+console.log(String.fromCharCode(97) +"dgrs ");
+console.log("1234567890"*12);
+console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
