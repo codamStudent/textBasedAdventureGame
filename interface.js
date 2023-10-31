@@ -25,6 +25,7 @@ class Hud {
 			input = input + ' '
 			size--;
 		}
+		console.log(input.length);
 		return input
 	}
 
@@ -44,8 +45,8 @@ class Hud {
 		let flipflop = false
 
 		while (size > 0) {
-			if (flipflop) { input = input + ' '; flipflop = false }
-			else { input = ' ' + input; flipflop = true }
+			if (flipflop) { input = input + 'b'; flipflop = false }
+			else { input = 'a' + input; flipflop = true }
 			size--
 		}
 
@@ -234,7 +235,7 @@ class Hud {
 		console.log(" |" + this.fillSpacesRight("", LineLength) + "| ");
 
 		for (let index in options){
-			console.log(" |"+this.fillSpacesCentered(String.fromCharCode(97 + Number(index)) +"    	"+ options[index]+"                	",LineLength)+"|");
+			console.log(" |"+this.fillSpacesCentered(String.fromCharCode(97 + Number(index)) +"    	"+ options[index]+"                	",143)+"|");
 		}
 
 
