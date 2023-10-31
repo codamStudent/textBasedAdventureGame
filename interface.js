@@ -25,7 +25,7 @@ class Hud {
 			input = input + ' '
 			size--;
 		}
-		console.log(input.length);
+		// console.log(input.length);
 		return input
 	}
 
@@ -41,16 +41,16 @@ class Hud {
 
 	static fillSpacesCentered(input, size) {
 		size -= input.length
-		console.log(input.length);
+		// console.log(input.length);
 		let flipflop = false
 
 		while (size > 0) {
-			if (flipflop) { input = input + 'b'; flipflop = false }
-			else { input = 'a' + input; flipflop = true }
+			if (flipflop) { input = input + ' '; flipflop = false }
+			else { input = ' ' + input; flipflop = true }
 			size--
 		}
 
-		console.log(input.length);
+		// console.log(input.length);
 		return input
 	}
 
@@ -76,12 +76,12 @@ class Hud {
 	// }
 
 	// the final part that shows the dialogue and image and gets the user input
-	static showScreenDialogue(CName, dialogue = ["", "", "", "", "",
-		"", "", "", "", "",
-		"", "", "", "", "",
-		"", "", "", "", "",
-		"", "", "", "", "", ""],
-		image, question) {
+	static showScreenDialogue(CName, dialogue,
+		image = ["", "", "", "", "",
+			"", "", "", "", "",
+			"", "", "", "", "",
+			"", "", "", "", "",
+			"", "", "", "", "", ""], question) {
 		let LineLength = 152, lastprintedchar = 1, texttobeprinted = ""
 		dialogue = this.fillSpacesRight(dialogue, LineLength * 9)
 
@@ -122,7 +122,7 @@ class Hud {
 			console.log("  _________________________ " + this.fillSpacesRight(image[22].substring(28), LineLength - 24))
 			console.log(" |                         |" + this.fillSpacesRight(image[23].substring(28), LineLength - 24))
 			console.log(" |                         |" + this.fillSpacesRight(image[24].substring(28), LineLength - 24))
-			console.log(" |" + this.fillSpacesCentered(CName, 24) + '|' + this.fillSpacesRight(image[25].substring(28), LineLength - 24))
+			console.log(" |" + this.fillSpacesCentered(CName, 25) + '|' + this.fillSpacesRight(image[25].substring(28), LineLength - 24))
 			console.log(" |                         |" + this.fillSpacesRight(image[26].substring(28), LineLength - 24))
 			console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
 		}
@@ -186,7 +186,7 @@ class Hud {
 		"", "", "", "", "",
 		"", "", "", "", "", ""], question) {
 
-		let LineLength = 152 /*lastprintedchar = 1, texttobeprinted = ""*/
+		let LineLength = 152, printedLineCount = 0 /*lastprintedchar = 1, texttobeprinted = ""*/
 
 		console.log(this.fillSpacesRight(image[0], LineLength))
 		console.log(this.fillSpacesRight(image[1], LineLength))
@@ -226,41 +226,38 @@ class Hud {
 			console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
 		}
 
-		for (let index = 9; index > 0; index--) {
+		for (let index = 9; index > 0; index--) 
 			options.scramble()
-		}
 
 		console.log(" |" + this.fillSpacesRight("", LineLength) + "| ");
 		console.log(" |" + this.fillSpacesRight(question, LineLength) + "| ");
 		console.log(" |" + this.fillSpacesRight("", LineLength) + "| ");
 
-		for (let index in options){
-			console.log(" |"+this.fillSpacesCentered(String.fromCharCode(97 + Number(index)) +"    	"+ options[index]+"                	",143)+"|");
+		let op = []
+
+		for (let index in options) {
+			console.log(" |" + this.fillSpacesCentered(String.fromCharCode(97 + Number(index)) + "    	" + options[index] + "                	", 143) + "|");
+			++printedLineCount
+			op.push(String.fromCharCode(97 + Number(index)))
 		}
 
-
-
-
-
-
-
-
-
-		// for (let Line = 0; Line <= 8; Line++) {
-		// 	// ... so that i can intercept it later
-		// 	if (lastprintedchar) {
-		// 		[texttobeprinted, lastprintedchar] = this.cutStringTwice(dialogue, lastprintedchar, LineLength);
-		// 		console.log(" |" + this.fillSpacesRight(texttobeprinted, LineLength) + "| ");
-		// 		// skip the ' ' at which we just cut of
-		// 		lastprintedchar++
-		// 	} else
-		// 		console.log(" |" + this.fillSpacesRight("", LineLength) + "| ")
-		// }
+		while (printedLineCount++ < 6)
+			console.log(" |" + this.fillSpacesRight("", LineLength) + "| ");
 
 		console.log(" |________________________________________________________________________________________________________________________________________________________| ")
 		console.log("                                                                                                                                                            ")
 
-		return rs.question(question)
+		let choice = rs.question("what option will you chose? ").toLowerCase()
+		while (true) {
+			if (op.includes(choice))
+				return choice
+			else {
+				// this process still adds another line while deleting the last line, but i cant 
+				process.stdout.moveCursor(0, -1)
+				process.stdout.write("\r\x1b[K");
+				choice = rs.question("please give a valid answer ");
+			}
+		}
 	}
 }
 
@@ -275,6 +272,13 @@ Hud.showScreenQuestion("jannes", ["aaa", "bbb", "ccc"],
 		"0000000000000000000000000000000000000000026", "000000000000000000000000000000000000027"
 	],
 	"whaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat?")
+
+// Hud.showScreenDialogue("meeee", "aaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccccccccc ddddddddddddddddddddddd eeeeeeeeeeeeeeeee ffffffffffffffffffffff gggggggggggggggggggggg", 
+// ["01", "02", "03", "04", "05", "06", "07","08", "09", "10", "11", "12", "13", "14",
+// "15", "16", "17", "18", "19", "20", "21", "22", "000000000000000000000000000000000000000023",
+// "0000000000000000000000000000000000000000000024", "00000000000000000000000000000000000000000025",
+// "0000000000000000000000000000000000000000026", "000000000000000000000000000000000000027"
+// ],"haaaalllloooo?")
 
 module.exports = Hud
 
