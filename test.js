@@ -106,25 +106,53 @@
 
 // [texttobeprinted, lastprintedchar] = cutStringTwice(dialogue, 40, LineLength)
 // console.log(texttobeprinted, lastprintedchar);
-   
+
 
 
 
 // [texttobeprinted, lastPrintedhar] = cutStringTwice(dialogue, lastprintedchar, LineLength)
-    // console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
+// console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
 
-    // // [texttobeprinted, lastprintedchar] = cutString(dialogue.substring(lastprintedchar, dialogue.length))
-    // console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
-    // // fillSpacesRight(cutString(dialogue, LineLength))
-    
-    //this ensures good line wrapping(, hopefully, havent tested it yet)
+// // [texttobeprinted, lastprintedchar] = cutString(dialogue.substring(lastprintedchar, dialogue.length))
+// console.log(" |"+ fillSpacesRight(texttobeprinted, LineLength)+"| ");
+// // fillSpacesRight(cutString(dialogue, LineLength))
 
-
+//this ensures good line wrapping(, hopefully, havent tested it yet)
 
 
-   
-        // console.log(" |" + dialogue.slice(0 + (LineLength * Line), (LineLength * (Line+1))) + "| ")
-console.log(String.fromCharCode(97) +"dgrs ");
-console.log("1234567890"*12);
-console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
+
+
+// console.log(" |" + dialogue.slice(0 + (LineLength * Line), (LineLength * (Line+1))) + "| ")
+
+//         console.log(String.fromCharCode(97) +"dgrs ");
+// console.log("1234567890"*12);
+// console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+// jannes
+// |          jannes         |
+
+// function cutStringAtChar(string = "", char) {
+//     for (const key in string)
+//         if (string[key] == char)
+//             return string.substring(0, key)
+//     return string
+// }
+
+// function cutStringAtCharReverse(string = "", char = '') {
+//     for (let key = string.length; key != 0; key--)
+//         if (string[key] == char)
+//             return string.substring(++key, string.length)
+//     return string
+// }
+// console.log(
+//     cutStringAtCharReverse("asldddfk", 'd'))
+
+const obj = {
+    testA: 1,
+    testB: 2
+};
+
+const { testA, testB } = obj

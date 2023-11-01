@@ -81,7 +81,7 @@ class Hud {
 			"", "", "", "", "",
 			"", "", "", "", "",
 			"", "", "", "", "",
-			"", "", "", "", "", ""], question) {
+			"", "", "", "", "", ""]) {
 		let LineLength = 152, lastprintedchar = 1, texttobeprinted = ""
 		dialogue = this.fillSpacesRight(dialogue, LineLength * 9)
 
@@ -143,7 +143,6 @@ class Hud {
 		console.log(" |________________________________________________________________________________________________________________________________________________________| ")
 		console.log("                                                                                                                                                            ")
 
-		return rs.question(question)
 	}
 
 
@@ -180,6 +179,7 @@ class Hud {
 				return string.substring(0, index);
 	}*/
 	}
+
 	static showScreenQuestion(CName, options = ["", "", "", ""], image = ["", "", "", "", "",
 		"", "", "", "", "",
 		"", "", "", "", "",
@@ -252,7 +252,7 @@ class Hud {
 			if (op.includes(choice))
 				return choice
 			else {
-				// this process still adds another line while deleting the last line, but i cant 
+				// this process still adds another line while deleting the last line, but i cant be bothered to fix that rn
 				process.stdout.moveCursor(0, -1)
 				process.stdout.write("\r\x1b[K");
 				choice = rs.question("please give a valid answer ");
@@ -263,15 +263,15 @@ class Hud {
 
 /*(CName, options = ["", "", "", ""], image = ["", "", "", "", "", ""], question)*/
 
-Hud.showScreenQuestion("jannes", ["aaa", "bbb", "ccc"],
-	[
-		"01", "02", "03", "04", "05", "06", "07",
-		"08", "09", "10", "11", "12", "13", "14",
-		"15", "16", "17", "18", "19", "20", "21", "22", "000000000000000000000000000000000000000023",
-		"0000000000000000000000000000000000000000000024", "00000000000000000000000000000000000000000025",
-		"0000000000000000000000000000000000000000026", "000000000000000000000000000000000000027"
-	],
-	"whaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat?")
+// Hud.showScreenQuestion("jannes", ["aaa", "bbb", "ccc"],
+// 	[
+// 		"01", "02", "03", "04", "05", "06", "07",
+// 		"08", "09", "10", "11", "12", "13", "14",
+// 		"15", "16", "17", "18", "19", "20", "21", "22", "000000000000000000000000000000000000000023",
+// 		"0000000000000000000000000000000000000000000024", "00000000000000000000000000000000000000000025",
+// 		"0000000000000000000000000000000000000000026", "000000000000000000000000000000000000027"
+// 	],
+// 	"whaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat?")
 
 // Hud.showScreenDialogue("meeee", "aaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb cccccccccccccccccccccccccccccc ddddddddddddddddddddddd eeeeeeeeeeeeeeeee ffffffffffffffffffffff gggggggggggggggggggggg", 
 // ["01", "02", "03", "04", "05", "06", "07","08", "09", "10", "11", "12", "13", "14",
