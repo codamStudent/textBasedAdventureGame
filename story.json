@@ -1,35 +1,258 @@
 {
     "1":{
-        "dialogue":["aaaaaaaa", "bbbbbbbbbbbbb", "ccccccc", "ddddddddd", "question"],
-        "namebox":["max0r", "jeff", "jouw_moeder", "j1eff", null ],
+        "dialogue":["Is het winter?"],
+        "namebox":["Katinka Polderman"],
         "screen":     
             {
                 "$ref":[
-                        "./screen.json#mymom/what", 
-                        "./screen.json#aaaaa/AAAAAA", 
-                        "./screen.json#bbbbbb/BBBBBBB", 
-                        "./screen.json#cccccc/CCCCCC",
-                        "./screen.json#dddddd/DDDDDD"
+                        "./screen.json#mymom/what" 
                     ]
              },
-        "options":      ["a?", "b?", "c?", "d?"],
-        "continue_at":  [3, 4, 12, 6]
+        "options":      ["ja", "nee"],
+        "continue_at":  [5, 2]
     },
-    
+
     "2":{
-        "dialogue":["aaaaaaaa", "bbbbbbbbbbbbb", "ccccccc", "ddddddddd", "question"],
-        "namebox":["max0r", "jeff", "jouw_moeder", "j1eff" ],
+        "dialogue":["Is het herfst?"],
+        "namebox":["Katinka Polderman"],
         "screen":     
             {
                 "$ref":[
-                        "./screen.json#person/face_expression", 
-                        "./screen.json#person/face_expression", 
-                        "./screen.json#person/face_expression", 
-                        "./screen.json#person/face_expression",
-                        "./screen.json#person/face_expression"
+                        "./screen.json#mymom/what" 
                     ]
              },
-        "options":      ["a?", "b?", "c?", "d?"],
-        "continue_at":  [3, 4, 12, 6]
+        "options":      ["ja", "nee"],
+        "continue_at":  [5, 3]
+    },
+
+    "3":{
+        "dialogue":["Lente dan?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["ja", "nee"],
+        "continue_at":  [10, 4]
+    }, 
+
+    "4":{
+        "dialogue":["Zomer?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["ja", "nee"],
+        "continue_at":  [10, 9]
+    },
+
+    "5":{
+        "dialogue":["Leeft u in het jaar 2050 of later?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["ja", "nee"],
+        "continue_at":  [6, 7]
+    },
+
+    "6":{
+        "dialogue":["Wat leuk, weet u wat een jas is?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["ja, ik studeer geschiedenis", "nee"],
+        "continue_at":  [8, 8]
+    }
+    ,
+    "7":{
+        "dialogue":["U moet uw jas meenemen. Sterker nog: u moet hem aantrekken! Let op: doe uw jas binnen uit anders heeft u er buiten niets meer aan.", null],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             }
+    },
+
+    "8":{
+        "dialogue":["Maakt op zich niet uit, u hoeft geen jas mee te nemen, maar vergeet niet uw hittewerende harnas aan te trekken als u uw huis verlaat. Succes hè.", null],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             }
+    },
+
+    "9":{
+        "dialogue":["Als u zo eigenwijs bent dat u uw eigen seizoenen kunt bedenken moet u ook maar zonder beslisboom uitzoeken of uw jas mee moet. Man man man, verrekte zeverzak", null],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             }
+    },
+
+    "10":{
+        "dialogue":["Is het jassenweer (regen/wind/kou/etc)?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["ja", "nee"],
+        "continue_at":  [12, 11]
+    },
+
+    "11":{
+        "dialogue":["Wat heerlijk! Genieten zeg, lekker zonnetje etc. Is het echt heet of vallen de weersomstandigheden meer in de categorie ‘lekker lenteweertje’?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["fijn lenteweertje", "heet!, poeh poeh!"],
+        "continue_at":  [13, 14]
+    },
+
+    "12":{
+        "dialogue":["Duurt dat nog lang?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["ja", "nee"],
+        "continue_at":  [16, 15]
+    },
+
+    "13":{
+        "dialogue":["U moet uw jas meenemen. Er kan altijd een lentebuitje vallen en daarna koelt het mogelijk flink af.", null],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             }
+    },
+
+    "14":{
+        "dialogue":["U moet uw jas meenemen, en een paraplu i.v.m. mogelijke onweersbuien met stortregens.", null],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             }
+    },
+
+    "15":{
+        "dialogue":["Kunt u even binnen de bui afwachten en iets later vertrekken dan gepland?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["ja", "nee"],
+        "continue_at":  [17, 16]
+    },
+
+    "16":{
+        "dialogue":["U moet uw jas meenemen. Het kan natuurlijk dat het toch opklaart en dan loopt u de rest van de dag met uw jas over een arm. Maar dat is minder erg dan een longontsteking", null],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             }
+    },
+
+    "17":{
+        "dialogue":["Blijft u langer dan 10 minuten van huis?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["ja", "nee"],
+        "continue_at":  [20, 18]
+    },
+
+    "18":{
+        "dialogue":["Maakt u het leven graag spannend?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["ja", "nee"],
+        "continue_at":  [19, 21]
+    },
+
+    "19":{
+        "dialogue":["Waag de gok en laat uw jas thuis. Als u dat te riskant vindt kunt u een vestje meenemen.", null],
+        "namebox":["Katinka Polderman"],
+        "screen":{
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             }
+    },
+
+    "20":{
+        "dialogue":["Zegt Buienradar dat het daarna lang droog en warm genoeg blijft voor zonder jas?"],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+             },
+        "options":      ["ja", "nee"],
+        "continue_at":  [18, 21]
+    },
+
+    "21":{
+        "dialogue":["U moet uw jas meenemen. Prettige dag!", null],
+        "namebox":["Katinka Polderman"],
+        "screen":     
+            {
+                "$ref":[
+                        "./screen.json#mymom/what" 
+                    ]
+            }
     }
 }
+

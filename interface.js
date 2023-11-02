@@ -18,10 +18,10 @@ var rs = require("readline-sync")
 var temp = 0, temp2 = 0
 class Hud {
 	//TODO: test all fillspaces to their function name
-	static fillSpacesRight(input, size) {
+	static fillSpacesRight(input = "", size) {
 		size -= input.length
 
-		while (size != 0) {
+		while (size > 0) {
 			input = input + ' '
 			size--;
 		}
@@ -29,24 +29,31 @@ class Hud {
 		return input
 	}
 
-	static fillSpacesLeft(input, size) {
+	static fillSpacesLeft(input = "", size) {
 		size -= input.length
 
-		while (size != 0) {
+		while (size >= 0) {
 			input = ' ' + input
 			size--;
 		}
 		return input
 	}
 
-	static fillSpacesCentered(input, size) {
+	static fillSpacesCentered(input = "", size) {
 		size -= input.length
 		// console.log(input.length);
 		let flipflop = false
+		flipflop = false
 
 		while (size > 0) {
-			if (flipflop) { input = input + ' '; flipflop = false }
-			else { input = ' ' + input; flipflop = true }
+			if (flipflop) { 
+				input = input + ' '; 
+				flipflop = false 
+			}
+			else { 
+				input = ' ' + input; 
+				flipflop = true 
+			}
 			size--
 		}
 
@@ -54,13 +61,13 @@ class Hud {
 		return input
 	}
 
-	static cutString(string, Max_length) {
+	static cutString(string = "", Max_length) {
 		for (let index = Max_length; index >= 0; index--)
 			if (string[index] == '\n' || string[index] == ' ')
 				return [string.substring(0, index), index];
 	}
 
-	static cutStringTwice(string, Start, Max_length) {
+	static cutStringTwice(string = "", Start, Max_length) {
 		for (let index = Max_length; index >= 0; index--)
 			if ((Start + index) < string.length)
 				if (string[Start + index] == '\n' || string[Start + index] == ' ')
@@ -142,7 +149,7 @@ class Hud {
 
 		console.log(" |________________________________________________________________________________________________________________________________________________________| ")
 		console.log("                                                                                                                                                            ")
-
+		rs.question("continue")
 	}
 
 
@@ -226,22 +233,26 @@ class Hud {
 			console.log(" |_________________________|______________________________________________________________________________________________________________________________  ")
 		}
 
-		for (let index = 9; index > 0; index--) 
-			options.scramble()
+		// let opForPrinting = options
+
+		// for (let index = 9; index > 0; index--)
+		// 	opForPrinting.scramble()
 
 		console.log(" |" + this.fillSpacesRight("", LineLength) + "| ");
-		console.log(" |" + this.fillSpacesRight(question, LineLength) + "| ");
+		console.log(" |" + this.fillSpacesRight("", LineLength) + "| ");
+		console.log(" |" + this.fillSpacesRight(this.fillSpacesLeft(question, 20),LineLength) + "| ");
 		console.log(" |" + this.fillSpacesRight("", LineLength) + "| ");
 
 		let op = []
 
 		for (let index in options) {
-			console.log(" |" + this.fillSpacesCentered(String.fromCharCode(97 + Number(index)) + "    	" + options[index] + "                	", 143) + "|");
+			console.log(" |" + this.fillSpacesCentered(this.fillSpacesRight(String.fromCharCode(97 + Number(index)) +"              "+ options[index]+"   ", 100),  LineLength) + "|");
 			++printedLineCount
+			// console.log(String.fromCharCode(97 + Number(index)) + "aaaa");
 			op.push(String.fromCharCode(97 + Number(index)))
 		}
 
-		while (printedLineCount++ < 6)
+		while (printedLineCount++ < 5)
 			console.log(" |" + this.fillSpacesRight("", LineLength) + "| ");
 
 		console.log(" |________________________________________________________________________________________________________________________________________________________| ")
@@ -249,9 +260,13 @@ class Hud {
 
 		let choice = rs.question("what option will you chose? ").toLowerCase()
 		while (true) {
-			if (op.includes(choice))
-				return choice
-			else {
+			// console.log(op);
+			console.log(options);
+			console.log(choice);
+			if (op.includes(choice)){
+				console.log(op.indexOf(choice));
+				return op.indexOf(choice)
+			}else {
 				// this process still adds another line while deleting the last line, but i cant be bothered to fix that rn
 				process.stdout.moveCursor(0, -1)
 				process.stdout.write("\r\x1b[K");

@@ -150,9 +150,34 @@
 // console.log(
 //     cutStringAtCharReverse("asldddfk", 'd'))
 
-const obj = {
-    testA: 1,
-    testB: 2
-};
+// const obj = {
+//     testA: 1,
+//     testB: 2
+// };
 
-const { testA, testB } = obj
+// const { testA, testB } = obj
+
+// |                                                           d          d?                                                                                 |
+// |                                                                                                                                                        |
+// |                                                                                                                                                        |
+// |_
+
+// function fillSpacesRight(input = "", size) {
+//     size -= input.length
+
+//     while (size >= 0) {
+//         input = input + ' '
+//         size--;
+//     }
+//     // console.log(input.length);
+//     return input
+// }
+
+
+// console.log(fillSpacesRight("aaaaaaaaaaaaaaa", 4));
+
+console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+console.log("a                                                         a");
+
+let temp = console.log("aaaaa");
+console.log(temp);
