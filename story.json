@@ -1,10 +1,11 @@
 {
     "1":{
-        "dialogue":["Is het winter?"],
-        "namebox":["Katinka Polderman"],
+        "dialogue":["Welkom bij mijn behulpzaam onderzoek. vandaag gaan we uitvinden of jij een jas mee moet nemen","Is het winter?"],
+        "namebox":["Katinka Polderman", "Katinka Polderman"],
         "screen":     
             {
                 "$ref":[
+                        "./screen.json#mymom/what",
                         "./screen.json#mymom/what" 
                     ]
              },

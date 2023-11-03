@@ -90,7 +90,7 @@ class Hud {
 			"", "", "", "", "",
 			"", "", "", "", "", ""]) {
 		let LineLength = 152, lastprintedchar = 1, texttobeprinted = ""
-		dialogue = this.fillSpacesRight(dialogue, LineLength * 9)
+		dialogue = this.fillSpacesRight(' ' + dialogue, LineLength * 9)
 
 		console.log(this.fillSpacesRight(image[0], LineLength))
 		console.log(this.fillSpacesRight(image[1], LineLength))
