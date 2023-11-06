@@ -37,13 +37,9 @@ function parseImage(pointer = "", index) {
   return obj;
 }
 
-// import { fillSpacesCentered, fillSpacesLeft, fillSpacesRight, showScreenDialogue, showScreenQuestion } from "./interface.js"
 var IF = require("./interface.js")
 var story = require("./story.json")
 
-// console.log(IF.fillSpacesCentered("asjkf;ldj", 2))
-// console.log(IF.fillSpacesRight("asjkf;ldj", 44))
-// console.log(story[1].screen);
 
 function followStory(index) {
   if (index === undefined) return
@@ -67,8 +63,5 @@ function followStory(index) {
   )])
 }
 
-// parseImage(story["1"].screen, 0);
 
 followStory("1")
-
-

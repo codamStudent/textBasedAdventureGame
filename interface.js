@@ -261,8 +261,8 @@ class Hud {
 		let choice = rs.question("what option will you chose? ").toLowerCase()
 		while (true) {
 			// console.log(op);
-			console.log(options);
-			console.log(choice);
+			// console.log(options);
+			// console.log(choice);
 			if (op.includes(choice)){
 				console.log(op.indexOf(choice));
 				return op.indexOf(choice)

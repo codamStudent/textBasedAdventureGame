@@ -176,8 +176,23 @@
 
 // console.log(fillSpacesRight("aaaaaaaaaaaaaaa", 4));
 
-console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-console.log("a                                                         a");
+// console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+// console.log("a                                                         a");
 
-let temp = console.log("aaaaa");
-console.log(temp);
+// let temp = console.log("aaaaa");
+// console.log(temp);
+
+// if (condition) {
+//     console.log("AAAAAAAAAAA");
+// }
+// let temp2
+
+// if (condition) 
+//     console.log("AAAAAAAAAAA");
+// let temp
+
+
+let rs = require('readline-sync')
+dice = rs.keyIn('Roll the dice, What will the result be? ',
+  {limit: '$<1-6>'})
+direction = rs.keyIn('Left or Right? ', {limit: 'lr'});
